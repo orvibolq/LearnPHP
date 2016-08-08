@@ -33,15 +33,16 @@ if($_FILES['userfile']['error'] > 0)  {
     }
     exit;
 }
-$upfile = '/uploads/'.$_FILES['userfile']['name'];
+$filePath = "../uploads/";
+$upfile = $filePath.$_FILES['userfile']['name'];
 echo $upfile;
-if($_FILES['userfile']['type'] != 'text/plain') {
-    echo 'Problem: file is not plain text';
-    exit;
-}
+//if($_FILES['userfile']['type'] != 'text/plain') {
+//    echo 'Problem: file is not plain text';
+//    exit;
+//}
 
 
-exit;
+//exit;
 if(is_uploaded_file($_FILES['userfile']['tmp_name'])) {
     if (!move_uploaded_file($_FILES['userfile']['tmp_name'],$upfile)) {
         echo 'Problem: Could not move file to destination directory';
